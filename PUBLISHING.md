@@ -1,5 +1,13 @@
 # PUBLISHING.md — publication status & remaining owner decisions
 
+> **Status (2026-07-23): PUBLISHED** at
+> [melodygaoyifan/autoproduct-design](https://github.com/melodygaoyifan/autoproduct-design),
+> tagged `v2.0-docs`. Decisions resolved with the shipped defaults: MIT with
+> the neutral holder "the autoproduct authors"; personal names kept
+> (attribution). Both remain reversible per the notes below. The reference
+> implementation lives at
+> [melodygaoyifan/autoproduct](https://github.com/melodygaoyifan/autoproduct).
+
 The bundle is publication-ready as shipped: `LICENSE` (MIT), `CONTRIBUTING.md`, `SECURITY.md` (OWASP LLM Top 10 : 2025 mapping), architecture diagram in the README (GitHub-native mermaid), the cited methodology reference included at `archive/external-reference-ai-mas-methodology.md` (all internal citations now resolve), and the validation/research-index doc (15). Two decisions remain yours; both are reversible and neither blocks publishing.
 
 ## Remaining decisions
