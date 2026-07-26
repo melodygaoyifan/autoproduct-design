@@ -34,6 +34,14 @@ open. Per milestone:
 | v2.5.0 experiments → **v0.17.0** | hash-pinned pre-registration (post-hoc edits void analysis, tested), BH + `fdr_plan_check`, O'Brien–Fleming boundaries + illegal-stop enforcement, two-stage harness with guardrail vetoes, `BLOCKED(INSUFFICIENT_POWER)` with n stated, inconclusive-enters-nothing at the compounding boundary, Ethics veto unweighed at Gate PL3-exp; `experiment-check`/`preregister` CLI | one real pre-registered experiment on live traffic |
 | v3.0.0 closed loop → **v0.18.0** | `evaluate_kill_criteria` (fired ⇒ mandatory recorded human decision; continue-unchanged illegal — invariant 14.20), append-only kill-registry writer, hypothesis reconciliation with claim-ID invalidation, Gate PL5 routing (never the inner loop, by schema), the five metrics incl. attention cost per resolved hypothesis; the full loop closes in one test, the killed idea resurfacing at P0 with its `revisit_if` | **the release gate itself**: one live loop ending in a real recorded kill or pivot at a real Gate PL5 — deliberately harsh, deliberately the operator's |
 
+One deliberate architectural mapping: Appendix M's four MCP servers
+(signal/marketing/analytics/feedback) are implemented as in-process
+boundaries with identical enforcement (query-layer refusals, standing
+checks, k-anonymity floors), matching the reference implementation's
+in-process tool architecture throughout; subprocess isolation remains the
+documented upgrade path. The 24 voter fixture-registration gates and the
+`.mas/strategy.yaml` loader shipped post-audit (2026-07-26).
+
 Every phase boundary was treated as the legitimate stopping point §23 declares
 it to be; the build order (substrate → dangerous stages → measurement →
 generation → kill machinery) was followed as specified.
