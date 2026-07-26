@@ -65,6 +65,16 @@ Deterministic checks: the promotion graph is a DAG ending at prod; every gate na
 
 Extends doc 23's track; same buffer and change-control policy. **P21:** EARS perf grammar + `quantifier_scan` extension + k6 smoke slot. **P22:** `perf_regression`/`soak`/`spike` + VALID-run typing + `capacity.yaml` + seeded perf-defect manifest (lane lands PROVISIONAL). **P23:** realtime delta — `det_sim_scan`, replay-identity fixtures, netem profiles, WS spike scenario. **P24:** streaming delta — `stream_contract_check`, contract file, backpressure probe, replay verification. **P25:** `arch_contract_check` per lane + `deps.yaml`/ledger + brownfield checkpoint mode. **P26:** `environments.yaml` + `flag_lint` + `migration_rehearsal`; re-run the capability evaluation and publish the diff.
 
+**Implementation status (2026-07-26, ai-product-autopilot v0.23.0):** the
+deterministic core of P21–P26 shipped as `src/autoproduct/lanes/` — perf
+grammar + VALID-run typing + capacity arithmetic, `det_sim_scan` + the
+three replay checks, `stream_contract_check` (with 'default' lexically
+rejected), `deps.yaml` + `arch_contract_check` + checkpoint mode,
+`environments.yaml` + `flag_lint` + `migration_rehearsal` — all
+fixture-tested. Pending, per the lane rules themselves: k6/netem/registry
+execution wrappers (availability-gated) and the seeded perf-defect
+calibration run that converts the lane from PROVISIONAL.
+
 What the evaluation table flips to, honestly labeled: high-traffic backends ❌→**review-level ✅, empirical after P22 calibration**; realtime/multiplayer ❌→✅ (design), with `replay_identity` as the falsifiable core; streaming D→✅ (design); architecture evolution B+→A− (the remaining minus: fitness functions can't check what layers *should* exist, only that declared ones hold — that judgment stays human); delivery hardening ❌ rows → ✅. Every ✅ remains a design-coverage grade until its seeded manifest or fixture run converts it, per the standing rule.
 
 | Invariant | Statement | Enforced by |
