@@ -164,4 +164,10 @@ Downstream bootstrapping is unchanged (README prior edition; use `/review`-class
 
 `LICENSE` (MIT — swap the holder or license if you prefer, see PUBLISHING.md) · `CONTRIBUTING.md` (change-control protocol, what to contribute, the citation calibration rule) · `SECURITY.md` (design-level reporting + OWASP LLM Top 10 : 2025 control mapping) · `PUBLISHING.md` (remaining owner decisions before/after going public) · the [ai-product-autopilot](https://github.com/melodygaoyifan/ai-product-autopilot) reference implementation (the outer-loop deterministic backstops — substantiation, disclosure, deliverability, spam-policy, experiment design, attribution typing, kill criteria — runnable and fixture-gated; `uv run pytest`) · `15-validation-and-traceability.md` (five-perspective validation, research index, traceability matrix).
 
+**Implementation traceability:** every doc in this canon is cross-referenced
+to its shipped mechanism in the reference implementation's
+[implementation map](https://github.com/melodygaoyifan/ai-product-autopilot/blob/main/docs/implementation-map.md)
+(one row per doc: mechanism, release tag, named open items). Docs 19, 23,
+28 and 29 additionally carry inline implementation-status annotations.
+
 **Disclaimer:** cost, time, and threshold numbers are engineering defaults calibrated by the Day-0 experiments; run Day-0 before trusting any week plan.
