@@ -59,4 +59,13 @@ Per the phased-trust practice (§84.1): **SW0** report-only — Sweep runs for t
 **Metrics:** action rate per pass · debt-trend deltas attributable to sweep (flags removed, deprecated_references count, dead-code LOC) · sweep-PR revert rate (the honesty metric — a rising revert rate demotes the rung) · median sweep-PR review dwell.
 
 ---
+**Implementation status (2026-07-26, ai-product-autopilot v0.25.0):** the
+deterministic core shipped — queue harvesting over the existing ledgers,
+the behavior-preservation contract, the SW0-SW2 ladder with recorded
+promotion, attention caps, hash-stamped clean passes, the over-action
+alarm, and the E2 weekly-review agenda line. Pending by design: the LLM
+patch-writer for allowlisted chores (rides the standing stage machinery
+when enabled past SW0) and live vulture/jscpd/dependency feeds
+(availability-gated externals).
+
 *Cross-references: §09.8 (compound loop cadence), §11.5.1 (trust promotions), §16 (WIP/attention, shared-file registry, merge queue), §20.53 (claim expiry), §70.2 (E2 weekly review), §75.2 (watch items), ADR-U35 (flag registry), §81.1 (checkpoint), §77.4 (capacity staleness). Research rows land in doc 15 §6.*
