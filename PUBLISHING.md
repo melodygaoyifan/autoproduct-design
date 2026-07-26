@@ -34,7 +34,7 @@ sed -i 's/Melody/the maintainer/g; s/melody/the maintainer/g; s/yifangao/<user>/
 
 - **Name:** `autoproduct` (or your choice)
 - **Description:** Design docs for a full-lifecycle multi-agent software development system: discovery → planning → spec → coding → review → test → deploy → maintenance. Spec-driven, harness-enforced, vote-don't-debate.
-- **Topics:** `multi-agent-systems` `ai-agents` `spec-driven-development` `llm` `code-review` `software-engineering` `agentic-coding` `langgraph` `mcp` `frontend` `mobile` `gamedev` `wechat-miniprogram`
+- **Topics:** `multi-agent-systems` `ai-agents` `spec-driven-development` `llm` `code-review` `software-engineering` `agentic-coding` `langgraph` `mcp` `frontend` `mobile` `gamedev` `wechat-miniprogram` `product-management` `growth` `experimentation` `generative-engine-optimization`
 - **First release tag:** `v2.0-docs` — freezes a citable state; the change-control protocol (10 Part 11) governs evolution from there, linked from CONTRIBUTING.
 - **Positioning line for the repo/social post:** independent 2026 production pipelines (CodeRabbit, Qodo Merge) converged on the same review shape this design specifies — trigger → context → adversarial verification → dedupe → policy engine → feedback loop (doc 15 §6).
 
