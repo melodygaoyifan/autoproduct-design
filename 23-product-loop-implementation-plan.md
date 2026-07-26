@@ -18,10 +18,10 @@ A team that only ever completes steps 1–3 has a real improvement: honest claim
 
 ## Milestones
 
-### Implementation status (as of 2026-07-26; autoproduct-ai v0.13.0–v0.18.0)
+### Implementation status (as of 2026-07-26; ai-product-autopilot v0.13.0–v0.18.0)
 
 The deterministic engineering of every milestone shipped ahead of schedule in
-the [autoproduct-ai](https://github.com/melodygaoyifan/autoproduct-ai) repo;
+the [ai-product-autopilot](https://github.com/melodygaoyifan/ai-product-autopilot) repo;
 the release gates that are deliberately human- or live-loop-shaped remain
 open. Per milestone:
 
