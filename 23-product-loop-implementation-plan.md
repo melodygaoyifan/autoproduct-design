@@ -18,6 +18,26 @@ A team that only ever completes steps 1–3 has a real improvement: honest claim
 
 ## Milestones
 
+### Implementation status (as of 2026-07-26; autoproduct-ai v0.13.0–v0.18.0)
+
+The deterministic engineering of every milestone shipped ahead of schedule in
+the [autoproduct-ai](https://github.com/melodygaoyifan/autoproduct-ai) repo;
+the release gates that are deliberately human- or live-loop-shaped remain
+open. Per milestone:
+
+| Milestone | Shipped (code, fixture-gated, tested, on main) | Pending (external) |
+|---|---|---|
+| v2.1.0 substrate → **v0.13.0** | claim schema + `claim_lint` (13 rules, 8/8 seeded fabrication fixtures, clean control), content-addressed snapshots + rot detection, `synthetic_persona_scan`, `source_standing_check` (fails closed), `user_data_taint` + no-weakening loader, `claim-lint` CLI | the hand-written retro market memo exercise (Phase-0 discipline, operator's) |
+| v2.2.0 safe-publish → **v0.14.0** | all seven backstops fixture-gated at 8/8, channel profiles (add/lower-only, `paid` rejected by name), Gate PL3 scoped-approval data model (no unscoped representation), `forbidden_autonomous` additions loader-enforced + startup-tested | one real artifact published through the gate by a human |
+| v2.3.0 evidence → **v0.15.0** | analytics/feedback boundary (person-level queries error, k-floor server-side, pii redaction), metric vocabulary + `changed_at` baseline reset, `cohort_calc` + sufficiency, `signal_router`, `attribution_typer` + holdout tooling; causal-without-holdout rejected at two layers, tested | wiring to the operator's real analytics/support systems (wrapped adapters) |
+| v2.4.0 upstream → **v0.16.0** | P0 clustering + kill-registry read path + Gate PL0, `sizing_calc` (ranges, BLOCKED on unsourceable factors), `injection_scan` (8/8 incl. the planted-instruction set), standing-checked probes, Gate PL1 entry + decision schema, PRD schema + `prd_lint`, `p2_to_stage1` handoff validated at Discovery's DoR — one opportunity traverses P0→P1→P2→Stage 1 in one test; 16 voter charters | live LLM stage rosters run via the standing MAS machinery, not yet one-command stages |
+| v2.5.0 experiments → **v0.17.0** | hash-pinned pre-registration (post-hoc edits void analysis, tested), BH + `fdr_plan_check`, O'Brien–Fleming boundaries + illegal-stop enforcement, two-stage harness with guardrail vetoes, `BLOCKED(INSUFFICIENT_POWER)` with n stated, inconclusive-enters-nothing at the compounding boundary, Ethics veto unweighed at Gate PL3-exp; `experiment-check`/`preregister` CLI | one real pre-registered experiment on live traffic |
+| v3.0.0 closed loop → **v0.18.0** | `evaluate_kill_criteria` (fired ⇒ mandatory recorded human decision; continue-unchanged illegal — invariant 14.20), append-only kill-registry writer, hypothesis reconciliation with claim-ID invalidation, Gate PL5 routing (never the inner loop, by schema), the five metrics incl. attention cost per resolved hypothesis; the full loop closes in one test, the killed idea resurfacing at P0 with its `revisit_if` | **the release gate itself**: one live loop ending in a real recorded kill or pivot at a real Gate PL5 — deliberately harsh, deliberately the operator's |
+
+Every phase boundary was treated as the legitimate stopping point §23 declares
+it to be; the build order (substrate → dangerous stages → measurement →
+generation → kill machinery) was followed as specified.
+
 | Version | Weeks | Contains | Release gate |
 |---|---|---|---|
 | **v2.1.0** substrate | P1–P2 | claim schema + `claim_lint` + evidence snapshotting + `synthetic_persona_scan` + `source_standing_check` + taint classes; ADR-U19/U22/U23 recorded | `claim_lint` catches 8/8 seeded fabrication fixtures; one real artifact (a retro market memo, hand-written) passes only after real corrections |
