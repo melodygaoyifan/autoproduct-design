@@ -42,10 +42,13 @@ flowchart LR
 15-validation-and-traceability.md  → Five-perspective validation + traceability matrix to the methodology reference
 16-scaling-and-continuous-operation.md → Cross-feature scaling, the bounded outer loop (WIP limits, gate-latency metric), 2026-H2 technique radar (Parts 38-40)
 17-domain-profiles.md              → Client-domain profiles: web, 小程序 mini-program, mobile app, game — deterministic checks, voter deltas, platform-review gates (Parts 41-45)
+18-traditional-industry-gap-closure.md → Traditional-enterprise adoption: substrate ladder (S0-S4), Java/.NET promotion, Gate R
+                              (regulated change control), data-pipeline + ERP-extension profiles, enterprise hardening (Parts 46-50)
+19-gap-closure-implementation-plan.md  → 24-week gap-closure track (G1-G24) with day-level detail, appendices I-L (Part 51)
 day-0-calibration.md        → Track A (downstream, unchanged) + Track B (upstream) calibration experiments
 ```
 
-Read 08 → 09 cover-to-cover for downstream; 12 → 13 cover-to-cover for upstream; 10/14 as reference; 11 as the integration keystone for both.
+Read 08 → 09 cover-to-cover for downstream; 12 → 13 cover-to-cover for upstream; 10/14/19 as reference; 11 as the integration keystone for both. Read 18 if you are adopting outside a modern-stack product team (traditional enterprise, data teams, ERP estates).
 
 ## Scope
 
@@ -77,6 +80,7 @@ The system remains **autonomous within bounded autonomy**: every stage operates 
 - A validation & traceability report against the source methodology and research base (doc 15).
 - Cross-feature scaling and continuous operation under WIP limits and a human-attention budget, plus a verified technique radar — GEPA-powered compounding, CaMeL-staged injection defense, voter cascades with a heterogeneity floor (doc 16).
 - Domain profiles making frontend work first-class — web (Playwright/visual baselines/CWV budgets), WeChat mini-programs (package/domain/privacy preflight, review-train gates), mobile apps (Maestro flows, device tiers, store gates), and games (determinism checks, bot playtests, the human playtest gate) — as composable deltas, never forks (doc 17).
+- The traditional-industry adoption track (docs 18–19, ADR-U15..U18): a substrate-adoption ladder (S0–S4) where stages below their infrastructure floor are inactive-never-degraded and upstream stages are the zero-infrastructure wedge; Gate R modeling CAB/SOX-class change control as an external gate feeding the compounding loop; Java/.NET promoted to first-class via fixture-gated toolchains with a published seeded-defect catch-rate; data-pipeline and ERP-extension domain profiles; and enterprise deployability (SSO on HITL gates, attestation ledger, VPC reference deploy).
 - Errata applied to §08.2.2.10 (slopsquatting rate nuance) — see §12.24.4.
 
 ### Explicitly out of scope (still)
@@ -86,7 +90,8 @@ The system remains **autonomous within bounded autonomy**: every stage operates 
 - **Auto-merge to main. Auto-deploy to production. Auto-hotfix. L4 tools.** Unchanged from the prior edition.
 - **Scope changes without an SCR.** After Gate U2 locks scope, the only path to change it is a human-approved Spec Change Request.
 - **Pricing, GTM, launch marketing. Visual/UX design authorship** (the system consumes design specs and can verify fidelity against them — doc 17; it does not author pixel design).
-- **Enterprise features. Cross-language first-class support. Self-modifying code. SaaS.** Unchanged.
+- **Multi-tenant SaaS. Self-modifying code.** Unchanged. *(Revised by doc 18: enterprise deployability — SSO, attestation ledger, VPC self-hosting — is now in scope per ADR-U17, and Java/.NET are promoted to first-class via fixture-gated toolchains per ADR-U16. Multi-tenancy and SaaS packaging remain out.)*
+- **Vanilla ERP configuration and plant-floor OT control.** The ERP-extension profile (§18.48.2) covers custom code and integrations only; OT/SCADA targets are advisory-only forever (ADR-U18).
 
 ## Conventions
 
@@ -94,7 +99,7 @@ The system remains **autonomous within bounded autonomy**: every stage operates 
 - Citations are inline hyperlinks in practitioner style. Only verified sources are cited; industry-consensus claims are phrased as such.
 - Code is Python 3.11+, real and runnable where shown.
 - Cross-references: `§13.28` means document 13, Part 28. Within a doc: `§28`.
-- Documents 08–11 are canonical for downstream stages; 12–14 are canonical for upstream. On conflict, the change-control protocol (§10 Part 11) applies: the newest accepted decision wins and must be recorded.
+- Documents 08–11 are canonical for downstream stages; 12–14 for upstream; 17 for client-domain profiles; 18–19 for the traditional-industry adoption track. On conflict, the change-control protocol (§10 Part 11) applies: the newest accepted decision wins and must be recorded.
 
 ## Bootstrapping (chicken-and-egg, updated)
 
