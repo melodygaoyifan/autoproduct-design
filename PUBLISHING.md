@@ -38,6 +38,14 @@ sed -i 's/Melody/the maintainer/g; s/melody/the maintainer/g; s/yifangao/<user>/
 - **First release tag:** `v2.0-docs` — freezes a citable state; the change-control protocol (10 Part 11) governs evolution from there, linked from CONTRIBUTING.
 - **Positioning line for the repo/social post:** independent 2026 production pipelines (CodeRabbit, Qodo Merge) converged on the same review shape this design specifies — trigger → context → adversarial verification → dedupe → policy engine → feedback loop (doc 15 §6).
 
+## Release checklist addition (invariant 14.23)
+
+- [ ] No published performance number without an in-repo manifest + pinned
+      baseline that reproduces it: run `autoproduct bench` and
+      `autoproduct eval-gate` at the release tag; the README/benchmark-page
+      figures must resolve against `claims/platform.yaml` (ADR-U29 — the
+      implementation repo's suite enforces this mechanically).
+
 ## What was checked (so you don't re-check)
 
 Currency (searches 2026-07-18): Anthropic 2026 Agentic Coding Trends Report, June–July 2026 production review-pipeline surveys, Jan-2026 agent-PR effort/abandonment research, plus verified technique adoptions — CaMeL (arXiv:2503.18813), GEPA (ICLR 2026 Oral, arXiv:2507.19457) with its MAS extension (arXiv:2606.23664) — all corroborate, none contradict; the live watch list is doc 16 §40.6. Findings audit: 45/45 session findings present, plus 3 corroborations, 6 technique-radar entries, and 7 domain-profile research entries covering web/小程序/mobile/game (doc 15 §6). Domain coverage check (查漏补缺) recorded at the end of doc 17: desktop = composition of existing profiles; data/ML and embedded named as future profiles, not silent gaps. Cross-references: all §12–§15 references resolve; Parts 22–37 contiguous after 08–11's Parts 0–21; the methodology-reference citations resolve to the included file.
