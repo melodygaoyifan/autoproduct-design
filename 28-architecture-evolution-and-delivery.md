@@ -71,9 +71,12 @@ grammar + VALID-run typing + capacity arithmetic, `det_sim_scan` + the
 three replay checks, `stream_contract_check` (with 'default' lexically
 rejected), `deps.yaml` + `arch_contract_check` + checkpoint mode,
 `environments.yaml` + `flag_lint` + `migration_rehearsal` — all
-fixture-tested. Pending, per the lane rules themselves: k6/netem/registry
-execution wrappers (availability-gated) and the seeded perf-defect
-calibration run that converts the lane from PROVISIONAL.
+fixture-tested. v0.24.0 closed the remainder: k6/netem/registry execution wrappers ship
+availability-gated (absent externals skip visibly, with the would-be
+invocation on record), and the seeded perf-defect calibration ran for
+real — 5/5 caught at the 3x relative-detection factor, converting the
+lane to CALIBRATED (loopback, low parity, honestly scoped; AC runs still
+require prod_mirror per ADR-U30).
 
 What the evaluation table flips to, honestly labeled: high-traffic backends ❌→**review-level ✅, empirical after P22 calibration**; realtime/multiplayer ❌→✅ (design), with `replay_identity` as the falsifiable core; streaming D→✅ (design); architecture evolution B+→A− (the remaining minus: fitness functions can't check what layers *should* exist, only that declared ones hold — that judgment stays human); delivery hardening ❌ rows → ✅. Every ✅ remains a design-coverage grade until its seeded manifest or fixture run converts it, per the standing rule.
 
