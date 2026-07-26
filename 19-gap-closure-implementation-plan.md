@@ -18,6 +18,28 @@ Build order rationale (from §18.50.1): **wedge first** (needs nothing, proves c
 | **v1.8.0** enterprise | G13–G20 | SSO/OIDC on HITL surfaces + role-mapped gate authority + attestation ledger (signed export) + VPC reference deploy | internal audit accepts an attestation export as CAB evidence; all HITL surfaces behind SSO; deploy doc reproduced by someone who didn't write it |
 | **v2.0.0** traditional-industry GA | G18–G24 | ERP-extension profile v1 behind Gate R + doc updates + retrospective | one CAB cycle passed with system-generated evidence on the ABAP/integration lane; zero vanilla-config tasks accepted (F-18.2 counted at zero); §18.50.2 claim published |
 
+### Implementation status (as of 2026-07-25; autoproduct v0.11.0/v0.12.0)
+
+The solo-buildable engineering of every phase shipped ahead of schedule in the
+`autoproduct` repo (tags `v0.11.0`, `v0.12.0`); the plan's *release gates* remain
+open because they are deliberately pilot- and infrastructure-shaped. Per phase:
+
+| Phase | Shipped (code, tested, on main) | Pending (external) |
+|---|---|---|
+| G1–G2 | substrate loader + `STAGE_INACTIVE` semantics, readiness report, rung banners (in review.md/mirror/CLI), Gate R + CAB preflight + rejection→fixture loop + evaluator graduation, evidence bundle, `cab-package` | ADR ratification rode acceptance ✅; nothing else |
+| G3–G6 | dwell-time instrumentation (F-18.3) live from day one | **the wedge pilot itself** — real team, Phase-0 calibration, live CAB submission; the track's go/no-go gate |
+| G7–G9 | toolchain slot tables (java/dotnet), availability-gated runners, seeded lanes with planted-defect manifests, catch-rate benchmark + PROVISIONAL labeling, `.mas/toolchains.yaml` overrides | real-scanner calibration run (patterns are hand-labels until then); expansion of seeded defects with pilot's historical bugs |
+| G10–G12 | eval gate (pin/regress/missing-fails), backfill idempotency, contract checker, dbt/`.mas/data-checks.yaml` wrappers, data build-gate blocking, data profile for `init` | pilot climbing S1/S2 |
+| G13–G16 | 3 data voter skills (disjoint lenses) + planted data diff; hash-chained attestation ledger + `attest` (integrity half); ledger-backed evidence bundles | SSO/OIDC + role→gate authority (needs IdP); org-key signing; live pipeline + hypothesis reconciliation |
+| G17–G20 | rubber-stamp drill logic (dwell detector) | VPC reference deploy (needs target env); internal-audit acceptance |
+| G18–G24 | review-train plan check (`external_review: cab\|platform`); deploy-review honest lint-only degraded mode | ERP det_tools (needs ABAP lane); the ERP CAB cycle; GA retrospective |
+
+Deviation from plan worth recording: the build order ran G1–G2 → G7–G16 (code)
+before any pilot existed, inverting the "wedge first" sequencing for the *code*
+while preserving it for the *release gates* — v1.5.0-equivalent acceptance still
+waits on the pilot, exactly as §50.1 requires. R-G1's fallback rule held:
+simulation kept the build moving; nothing released against a simulated gate.
+
 ---
 
 ## Week G1 — ADRs + substrate loader (deterministic first)
