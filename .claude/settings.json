@@ -1,0 +1,17 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 /Users/yifangao/Downloads/auto_development_v2/.claude/hooks/mas-guard.py",
+            "timeout": 10,
+            "statusMessage": "Checking for .mas-destructive commands"
+          }
+        ]
+      }
+    ]
+  }
+}
