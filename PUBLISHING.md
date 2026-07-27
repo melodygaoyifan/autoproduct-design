@@ -6,7 +6,7 @@
 > the neutral holder "the autoproduct authors"; personal names kept
 > (attribution). Both remain reversible per the notes below. The reference
 > implementation lives at
-> [melodygaoyifan/ai-product-autopilot](https://github.com/melodygaoyifan/ai-product-autopilot).
+> [melodygaoyifan/ai-venture-studio](https://github.com/melodygaoyifan/ai-venture-studio).
 
 The bundle is publication-ready as shipped: `LICENSE` (MIT), `CONTRIBUTING.md`, `SECURITY.md` (OWASP LLM Top 10 : 2025 mapping), architecture diagram in the README (GitHub-native mermaid), the cited methodology reference included at `archive/external-reference-ai-mas-methodology.md` (all internal citations now resolve), and the validation/research-index doc (15). Two decisions remain yours; both are reversible and neither blocks publishing.
 

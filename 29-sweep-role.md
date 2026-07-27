@@ -59,7 +59,7 @@ Per the phased-trust practice (§84.1): **SW0** report-only — Sweep runs for t
 **Metrics:** action rate per pass · debt-trend deltas attributable to sweep (flags removed, deprecated_references count, dead-code LOC) · sweep-PR revert rate (the honesty metric — a rising revert rate demotes the rung) · median sweep-PR review dwell.
 
 ---
-**Implementation status (2026-07-26, ai-product-autopilot v0.25.0):** the
+**Implementation status (2026-07-26, ai-venture-studio v0.25.0):** the
 deterministic core shipped — queue harvesting over the existing ledgers,
 the behavior-preservation contract, the SW0-SW2 ladder with recorded
 promotion, attention caps, hash-stamped clean passes, the over-action
