@@ -133,13 +133,13 @@ The system remains **autonomous within bounded autonomy**: every stage operates 
 
 - **Executing real-user research.** Discovery drafts interview guides and hypothesis ledgers; talking to humans, running surveys, and validating hypotheses with real users is human work. The system never fabricates user evidence (§13.26.7 charter extension).
 - **Product strategy ownership.** Problem selection, scope-tier lock, and roadmap priority are human decisions at Gate U1/U2 — the system prepares options, never chooses.
-- **Auto-merge to main. Auto-deploy to production. Auto-hotfix. L4 tools.** Unchanged from the prior edition.
+- ~~**Auto-merge to main. Auto-deploy to production.**~~ *Revised by implementation [ADR-031](https://github.com/melodygaoyifan/ai-product-autopilot/blob/main/docs/adr/031-policy-armed-automation.md) (v0.39.0), narrowly.* Both capabilities exist and are **disarmed**: they act only under a policy file a human authored per repository, naming exact branches (globs refused), attributed to a named person, carrying an expiry after which the policy is dead, earned by a minimum track record of correct recommendations, and never for a diff touching migrations, IaC, CI workflows, `CLAUDE.md`, `.mas/`, or the policy files themselves — so automation can never widen its own permissions. The system still never decides *whether* automation is acceptable; a human does, in advance, in writing. The §08.1.8 ceiling is therefore **policy-armed rather than absolute** — but the property that mattered (no agent talks itself into a merge) is intact. **Auto-hotfix and L4 tools remain out entirely.**
 - **Scope changes without an SCR.** After Gate U2 locks scope, the only path to change it is a human-approved Spec Change Request.
 - **Visual/UX design authorship** (the system consumes design specs and can verify fidelity against them — doc 17; it does not author pixel design).
 - ~~**Pricing, GTM, launch marketing.**~~ *Revised by docs 20–23 (ADR-U19), narrowly.* The outer loop drafts positioning, pricing analysis, and launch assets and runs the experiments that evaluate them — but every external act (publish, send, modify public property, respond as brand, submit) is `forbidden_autonomous` and requires a scoped, per-artifact human approval that never generalizes. **The framework never spends money** — no paid acquisition, no bidding, no budget action, in any tier, ever (ADR-U20). Problem selection, scope-tier lock, pricing decisions, and roadmap priority remain human decisions at Gates PL1/PL2/PL5.
 - **Fabricated user evidence, of any kind.** Strengthened, not relaxed: agents may cluster and count real artifacts with resolvable locators, and may never author a persona quote, testimonial, review, or synthetic user need (ADR-U23). This is charter (§13.26.7), enforced by `synthetic_persona_scan` and `disclosure_lint`, and — in the marketing direction — the FTC's per-se treatment of fabricated reviews under the amended Endorsement Guides.
 - **Retrieval manipulation.** Hidden or cloaked text aimed at models, instruction-shaped content targeting reading agents, fabricated entity associations, synthetic authorship, and mass query-variant fan-out are blocked by construction, not by policy text (ADR-U21). The system depends on a clean corpus for its own P1 research; polluting one would be incoherent as well as wrong.
-- **Multi-tenant SaaS. Self-modifying code.** Unchanged. *(Revised by doc 18: enterprise deployability — SSO, attestation ledger, VPC self-hosting — is now in scope per ADR-U17, and Java/.NET are promoted to first-class via fixture-gated toolchains per ADR-U16. Multi-tenancy and SaaS packaging remain out.)*
+- **SaaS packaging. Self-modifying code.** *(Revised twice. By doc 18: enterprise deployability — SSO, attestation ledger, VPC self-hosting — is in scope per ADR-U17, and Java/.NET are first-class via fixture-gated toolchains per ADR-U16. By implementation [ADR-030](https://github.com/melodygaoyifan/ai-product-autopilot/blob/main/docs/adr/030-multi-tenant-server.md) (v0.38.0): **multi-tenancy** is in scope for the **server** only — one `serve` process may front several workspaces that must be provably disjoint, resolved by token and never by a client-supplied path, with per-tenant `secret://` webhook secrets and uniform 401s that never enumerate tenants.)* What stays out is the SaaS half: billing, plans, quotas, a shared database, a hosted control plane, and per-tenant key management. Tenants bring their own API keys; the framework still holds nobody's keys and spends nobody's money. Isolation is filesystem-and-routing level, not OS-level — one process per tenant remains the advice for threat models that include harness RCE.
 - **Vanilla ERP configuration and plant-floor OT control.** The ERP-extension profile (§18.48.2) covers custom code and integrations only; OT/SCADA targets are advisory-only forever (ADR-U18).
 
 ## Conventions
@@ -169,5 +169,20 @@ to its shipped mechanism in the reference implementation's
 [implementation map](https://github.com/melodygaoyifan/ai-product-autopilot/blob/main/docs/implementation-map.md)
 (one row per doc: mechanism, release tag, named open items). Docs 19, 23,
 28 and 29 additionally carry inline implementation-status annotations.
+
+**Scope reversals live in the implementation's ADRs.** Per the
+change-control protocol (§10 Part 11) the newest accepted decision wins and
+must be recorded. Three decisions taken while building reverse or narrow a
+non-goal stated above, and each carries its own record with the mechanism
+that bounds it:
+[ADR-029](https://github.com/melodygaoyifan/ai-product-autopilot/blob/main/docs/adr/029-mcp-transport-partial.md)
+(MCP is the real subprocess transport for the tool surface, superseding the
+"in-process by mapping" compromise),
+[ADR-030](https://github.com/melodygaoyifan/ai-product-autopilot/blob/main/docs/adr/030-multi-tenant-server.md)
+(multi-tenant server, not SaaS), and
+[ADR-031](https://github.com/melodygaoyifan/ai-product-autopilot/blob/main/docs/adr/031-policy-armed-automation.md)
+(merge and deploy execution, disarmed until a human arms a policy). A
+reversal recorded only in a commit message would be indistinguishable from
+scope creep, which is why they are documents.
 
 **Disclaimer:** cost, time, and threshold numbers are engineering defaults calibrated by the Day-0 experiments; run Day-0 before trusting any week plan.
